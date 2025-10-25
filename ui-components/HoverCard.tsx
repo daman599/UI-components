@@ -15,7 +15,7 @@ export default function HoverCard({
     textColor = "white",
 }: PropsType) {
     return (
-        <div className="relative w-[20rem] h-[20rem] rounded-4xl p-2 overflow-hidden cursor-default">
+        <div className="relative w-[20rem] h-[20rem] rounded-4xl p-2 overflow-hidden">
 
             {/* Background Gradient */}
             <div style={{ background: `linear-gradient(to bottom, ${color1}, ${color2})` }}
@@ -25,14 +25,12 @@ export default function HoverCard({
             {/* Diagonal Line Overlay */}
             <motion.div
                 initial={{ opacity: 0 }}
-                whileHover={{
-                    opacity: 0.5, // fade in effect
-                }}
+                whileHover={{ opacity: 0.5 }}
                 transition={{
                     duration: 0.8,
                     ease: "linear",
                 }}
-                className="absolute inset-0 bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.3),rgba(255,255,255,0.3)_1px,transparent_1px,transparent_40px)] rounded-4xl"
+                className="absolute inset-0 bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.3),rgba(255,255,255,0.3)_1px,transparent_0px,transparent_40px)] rounded-4xl"
             ></motion.div>
 
             {/* Content */}
