@@ -15,7 +15,7 @@ export default function HoverCard({
     textColor = "white",
 }: PropsType) {
     return (
-        <div className="relative w-[20rem] h-[20rem] rounded-4xl p-2 overflow-hidden">
+        <div className="relative w-[20rem] h-[20rem] rounded-4xl overflow-hidden">
 
             {/* Background Gradient */}
             <div style={{ background: `linear-gradient(to bottom, ${color1}, ${color2})` }}
@@ -34,9 +34,9 @@ export default function HoverCard({
             ></motion.div>
 
             {/* Content */}
-            <div className={`relative text-2xl font-normal text-[${textColor}] p-6 z-20`}>
+            <span className={` flex relative text-2xl font-normal text-[${textColor}] p-10 `}>
                 {text}
-            </div>
+            </span>
         </div>
     );
 }
