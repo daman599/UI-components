@@ -9,7 +9,7 @@ export default function GradientButton() {
     const rotate = useTransform(time, [0, 6000], [0, 360], { clamp: false });
 
     const rotateBg = useTransform(rotate, (value) => {
-        return `conic-gradient(from ${value}deg, #FF2D95, #8B5CF6,#2DD4BF, #3B82F6, #FB923C, #D9F99D)`
+        return `conic-gradient(from ${value}deg, #FF2D95, #8B5CF6, #2DD4BF, #3B82F6, #FB923C, #D9F99D)`
     });
 
     return (
