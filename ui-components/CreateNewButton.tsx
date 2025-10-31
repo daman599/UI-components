@@ -34,8 +34,8 @@ export default function CreateNewButton() {
         <div className="relative flex flex-col items-center justify-center min-h-[20rem]">
             {!btnClicked && (
                 <motion.button
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     onClick={() => setBtnClicked(true)}
                     className="relative z-10 flex border-2 border-[#c6c6c6b4] p-2 px-8 rounded-full bg-[#ebebeb95] cursor-pointer shadow-md"
