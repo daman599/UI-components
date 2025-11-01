@@ -41,7 +41,7 @@ export default function PlanSwitch() {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: 10 }}
                                 transition={{ duration: 0.3 }}
-                                className="absolute inset-0 flex items-center justify-center gap-1 text-base px-2"
+                                className="absolute inset-0 flex items-center justify-center gap-1 text-base p-2"
                             >
                                 <motion.div
                                     className="absolute left-0.5 top-2 bottom-2 w-[48.5%] right-0.5 bg-white text-center rounded-full"
