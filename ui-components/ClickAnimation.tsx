@@ -1,6 +1,8 @@
 "use client"
 
 import { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
+
 import {
     Target,
     Layers,
@@ -13,11 +15,11 @@ import {
 type itemsType = {
     title: string,
     description: string,
-    icon: React.ComponentType<{ color: string }>,
+    icon: React.ComponentType<{ color: string, className: string }>,
 }
 
 export default function ClickAnimation() {
-    const [currentItem, setCurrentItem] = useState<HTMLButtonElement | null>(null);
+    const [openBtnIndex, setOpenBtnIndex] = useState<number | null>(null);
 
     const items: itemsType[] = [
         {
@@ -48,19 +50,31 @@ export default function ClickAnimation() {
     ]
 
     return (
-        <div className="w-fit h-fit my-auto border-2 flex flex-col gap-6 border-[#e8e8e8] rounded-2xl bg-white p-2 px-2 py-3">
+        <div className="w-100 h-fit my-auto shadow-lg border-2 flex flex-col gap-6 border-[#e8e8e8] rounded-2xl bg-white p-2 px-2 py-3">
+
             {items.map((item, i) => {
                 const Icon = item.icon;
+                const isOpen = openBtnIndex === i;
+
                 return (
-                    <button key={i}
-                        className="w-full cursor-pointer flex items-center gap-3 px-3 py-1">
-                        <Icon color={"#a3a3a3"} />
+                    <button
+                        onClick={() => {
+                            setOpenBtnIndex(i);
+                        }}
+                        key={i}
+                        className="w-full cursor-pointer flex items-center gap-3 px-3 py-1" >
+                        <Icon color={isOpen ? "#5d5d5d" : "#a3a3a3"} className="transition-colors duration-300" />
 
                         <div className="w-full flex items-center justify-between">
                             <span className="text-xl font-semibold">{item.title}</span>
-                            <ChevronDown color={"#a3a3a3"} size={30} />
-                        </div>
 
+                            <motion.div
+                                animate={{ rotate: isOpen ? 180 : 0 }}
+                                transition={{ duration: 0.3, ease: "easeInOut" }}
+                            >
+                                <ChevronDown color={"#a3a3a3"} size={30} />
+                            </motion.div>
+                        </div>
                     </button>
                 );
             })}
