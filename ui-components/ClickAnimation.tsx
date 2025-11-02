@@ -1,4 +1,6 @@
 "use client"
+
+import { useState } from "react";
 import {
     Target,
     Layers,
@@ -15,6 +17,8 @@ type itemsType = {
 }
 
 export default function ClickAnimation() {
+    const [currentItem, setCurrentItem] = useState<HTMLButtonElement | null>(null);
+
     const items: itemsType[] = [
         {
             title: "What is Interaction Design?",
@@ -48,8 +52,8 @@ export default function ClickAnimation() {
             {items.map((item, i) => {
                 const Icon = item.icon;
                 return (
-                    <div key={i}
-                        className="w-full flex items-center gap-3 px-3 py-1">
+                    <button key={i}
+                        className="w-full cursor-pointer flex items-center gap-3 px-3 py-1">
                         <Icon color={"#a3a3a3"} />
 
                         <div className="w-full flex items-center justify-between">
@@ -57,7 +61,7 @@ export default function ClickAnimation() {
                             <ChevronDown color={"#a3a3a3"} size={30} />
                         </div>
 
-                    </div>
+                    </button>
                 );
             })}
         </div >
