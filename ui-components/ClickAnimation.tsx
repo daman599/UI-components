@@ -50,7 +50,7 @@ export default function ClickAnimation() {
     ]
 
     return (
-        <div className="w-100 my-auto shadow-lg border-2 flex flex-col gap-6 border-[#e8e8e8] rounded-2xl bg-white p-2 px-2 py-3">
+        <div className="w-100 max-h-150 my-auto shadow-lg border-2 flex flex-col gap-6 border-[#e8e8e8] rounded-2xl bg-white p-2 px-2 py-3">
 
             {items.map((item, i) => {
                 const Icon = item.icon;
@@ -58,14 +58,14 @@ export default function ClickAnimation() {
 
                 return (
                     <motion.div
-                        transition={{ duration: 1, ease: "easeOut" }}
+                        transition={{ duration: 1, ease: "easeInOut" }}
                         key={i}
                         onClick={() => {
                             setOpenBtnIndex(i);
                         }}
+                        className={`${isOpen && "bg-[#ededed] rounded-xl"}`}
                     >
-                        <div
-                            className="w-full cursor-pointer flex items-center gap-3 px-3 py-1" >
+                        <div className="w-full cursor-pointer flex items-center gap-3 px-3 py-1" >
                             <Icon color={isOpen ? "#5d5d5d" : "#a3a3a3"} className="transition-colors duration-300" />
 
                             <div className="w-full flex items-center justify-between">
