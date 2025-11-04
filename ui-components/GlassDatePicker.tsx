@@ -1,5 +1,5 @@
 "use client"
-import { Settings, PencilLine } from "lucide-react";
+import { Settings, PencilLine, Plus } from "lucide-react";
 import { useState } from "react";
 
 export default function GlassDatePicker() {
@@ -8,8 +8,8 @@ export default function GlassDatePicker() {
     return (
         <>
             <div className="bg-gradient-to-tl from-[#e93232] via-[#f8ab4d] to-[#e89032] bottom-55 absolute w-75 h-45"> </div>
-            <div className="relative w-90 h-80 bg-transparent border-1 border-[#efefef] rounded-3xl p-5 backdrop-blur-2xl flex flex-col items-center gap-5">
-                <div className="w-full flex items-center justify-between gap-5">
+            <div className="relative w-90 h-80 bg-transparent border-1 border-[#efefef] rounded-3xl p-5 backdrop-blur-2xl flex flex-col gap-5">
+                <div className="flex items-center justify-between gap-5">
                     <span className="bg-[#f0f0f09c] flex flex-1 items-center justify-between p-1 rounded-xl">
                         <button
                             onClick={() => {
@@ -33,7 +33,22 @@ export default function GlassDatePicker() {
                     </div>
                 </div>
 
-                <p className="text-2xl text-black font-medium text-start">November 04</p>
+                <p className="text-2xl text-black font-medium text-center">November 04</p>
+                <div className="flex flex-1">
+
+                </div>
+
+                <div className="flex items-center justify-between">
+                    <span className="flex items-center gap-2 text-white">
+                        <PencilLine color="white" size={20} />
+                        Add a note...
+                    </span>
+
+                    <span className="w-28 h-7 bg-white flex items-center justify-center gap-1 text-sm rounded-full p-1">
+                        <Plus size={18} />
+                        New Event
+                    </span>
+                </div>
             </div >
         </>
     );
