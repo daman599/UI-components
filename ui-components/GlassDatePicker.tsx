@@ -3,11 +3,12 @@ import { Settings, PencilLine, Plus } from "lucide-react";
 import { useState } from "react";
 
 const dates = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
+    "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"
 ];
 
 export default function GlassDatePicker() {
     const [viewMode, setViewMode] = useState<"Weekly" | "Monthly">("Weekly");
+    const [selected, setSelected] = useState<string | null>("04");
 
     return (
         <>
@@ -37,7 +38,7 @@ export default function GlassDatePicker() {
                     </div>
                 </div>
 
-                <p className="text-2xl text-black font-medium text-center">November 04</p>
+                <p className="text-2xl text-black font-medium text-center">November {selected}</p>
 
                 <div className="flex flex-col flex-1 items-center justify-center">
                     <svg width="300" height="120" viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg">
@@ -49,10 +50,10 @@ export default function GlassDatePicker() {
                             </linearGradient>
                         </defs>
 
-                        <path id="textCurve" d="M 10 45 Q 150 5 280 45" fill="transparent" stroke="none" />
+                        <path id="textCurve" d="M 10 40 Q 150 5 280 40" fill="transparent" stroke="none" />
 
-                        <path d="M 10 50 Q 150 10 280 50" stroke="url(#grad1)" fill="none" strokeWidth="2" />
-                        <path d="M 20 90 Q 150 85 280 90" stroke="url(#grad1)" fill="none" strokeWidth="2" />
+                        <path d="M 10 45 Q 150 10 280 45" stroke="url(#grad1)" fill="none" strokeWidth="2" />
+                        <path d="M 20 95 Q 150 85 280 95" stroke="url(#grad1)" fill="none" strokeWidth="2" />
 
                         <text fontSize="16" fill="#ffffff" textAnchor="middle">
                             <textPath href="#textCurve" startOffset="50%">
@@ -61,11 +62,15 @@ export default function GlassDatePicker() {
                         </text>
                     </svg>
 
-                    <div className="absolute w-70 px-5 py-20 mt-3 overflow-x-auto z-10 scrollbar-hide flex items-center gap-8 text-xl">
+                    <div className="absolute w-70 px-3 py-20 mt-4 overflow-x-auto z-10 scrollbar-hide flex items-center gap-8 text-xl">
                         {dates.map((date, i) => (
                             <span
                                 key={i}
-                            >{date}</span>
+                                onClick={() => {
+                                    setSelected(date);
+                                }}
+                                className={`${selected === date && "bg-amber-600 font-semibold"} transition-colors duration-300 w-16 h-9 cursor-pointer flex items-center justify-center p-2 rounded-full hover:bg-[#f0f0f09c]`}
+                            > {date}</span>
                         ))}
                     </div>
                 </div>
@@ -81,7 +86,7 @@ export default function GlassDatePicker() {
                         New Event
                     </span>
                 </div>
-            </div>
+            </div >
         </>
     );
 }
