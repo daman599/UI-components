@@ -52,7 +52,7 @@ export default function GlassDatePicker() {
                         <path id="textCurve" d="M 10 45 Q 150 5 280 45" fill="transparent" stroke="none" />
 
                         <path d="M 10 50 Q 150 10 280 50" stroke="url(#grad1)" fill="none" strokeWidth="2" />
-                        <path d="M 10 90 Q 150 40 280 90" stroke="url(#grad1)" fill="none" strokeWidth="2" />
+                        <path d="M 20 90 Q 150 85 280 90" stroke="url(#grad1)" fill="none" strokeWidth="2" />
 
                         <text fontSize="16" fill="#ffffff" textAnchor="middle">
                             <textPath href="#textCurve" startOffset="50%">
@@ -61,9 +61,11 @@ export default function GlassDatePicker() {
                         </text>
                     </svg>
 
-                    <div className="absolute w-70 overflow-x-auto scrollbar-hide flex items-center gap-8 text-xl">
+                    <div className="absolute w-70 px-5 py-20 mt-3 overflow-x-auto z-10 scrollbar-hide flex items-center gap-8 text-xl">
                         {dates.map((date, i) => (
-                            <span key={i}>{date}</span>
+                            <span
+                                key={i}
+                            >{date}</span>
                         ))}
                     </div>
                 </div>
