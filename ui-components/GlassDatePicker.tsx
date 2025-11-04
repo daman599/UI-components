@@ -2,6 +2,10 @@
 import { Settings, PencilLine, Plus } from "lucide-react";
 import { useState } from "react";
 
+const dates = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
+];
+
 export default function GlassDatePicker() {
     const [viewMode, setViewMode] = useState<"Weekly" | "Monthly">("Weekly");
 
@@ -10,7 +14,6 @@ export default function GlassDatePicker() {
             <div className="bg-gradient-to-tl from-[#e93232] via-[#f8ab4d] to-[#e89032] bottom-55 absolute w-75 h-45"></div>
 
             <div className="relative w-90 h-80 bg-transparent border border-[#efefef] rounded-3xl p-4 backdrop-blur-2xl flex flex-col gap-5">
-                {/* Top buttons */}
                 <div className="flex items-center justify-between gap-5">
                     <span className="bg-[#f0f0f09c] flex flex-1 items-center justify-between p-1 rounded-xl">
                         <button
@@ -57,6 +60,12 @@ export default function GlassDatePicker() {
                             </textPath>
                         </text>
                     </svg>
+
+                    <div className="absolute w-70 overflow-x-auto scrollbar-hide flex items-center gap-8 text-xl">
+                        {dates.map((date, i) => (
+                            <span key={i}>{date}</span>
+                        ))}
+                    </div>
                 </div>
 
                 <div className="flex items-center justify-between">
