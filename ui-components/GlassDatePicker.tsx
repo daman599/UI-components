@@ -34,8 +34,18 @@ export default function GlassDatePicker() {
                 </div>
 
                 <p className="text-2xl text-black font-medium text-center">November 04</p>
-                <div className="flex flex-1">
-
+                <div className="flex flex-1 items-center justify-center">
+                    <svg width="300" height="100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stopColor="#efefef" stopOpacity="50" />
+                                <stop offset="50%" stopColor="#ff6a00" stopOpacity="1" />
+                                <stop offset="100%" stopColor="#efefef" stopOpacity="50" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M 10 50 Q 150 10 280 50" stroke="url(#grad1)" fill="none" strokeWidth="2" />
+                        <path d="M 10 90 Q 150 40 280 90" stroke="url(#grad1)" fill="none" strokeWidth="2" />
+                    </svg>
                 </div>
 
                 <div className="flex items-center justify-between">
