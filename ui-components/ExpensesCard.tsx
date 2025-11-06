@@ -1,6 +1,8 @@
 "use client"
 
 import { ChevronDown, Bus, ChevronRight, HeartPulse, ShoppingCart, Utensils, Box } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 
 interface itemsType {
     itemName: string;
@@ -37,41 +39,57 @@ const items: itemsType[] = [
 ]
 
 export default function ExpensesCard() {
+    const [btnClicked, setBtnClicked] = useState<boolean>(false);
+
     return (
-        <div className="bg-[#ffffff] w-100 h-fit rounded-2xl p-5 drop-shadow-2xl">
+        <motion.div
+            layout
+            transition={{ duration: 0.3 }}
+            className="bg-[#ffffff] w-100 h-fit rounded-2xl p-5 drop-shadow-2xl">
             <div className="text-base font-medium text-[#929292]">
                 Novemeber 2025
             </div>
 
             <div className="flex items-center justify-between py-1">
                 <span className="text-2xl font-medium text-[#252525] tracking-wider">$4,604</span>
-                <ChevronDown />
+                <ChevronDown onClick={() => {
+                    setBtnClicked(!btnClicked);
+                }}
+                    className="cursor-pointer" />
             </div>
 
             <div className="text-[#73da68]">
                 You have spent 20% more than last week.
             </div>
 
-            <div className="flex flex-col gap-3 mt-5">
-                {items.map((item, i) => {
-                    const Icon = item.icon;
-                    return (
-                        <div key={i}
-                            className="flex items-center justify-between w-full p-4 rounded-xl border-1 border-[#dcdcdc] shadow-xs">
-                            <span className="flex items-center gap-3">
-                                <Icon />
-                                <span className="text-lg font-medium">{item.itemName}</span>
-                            </span>
+            <AnimatePresence>
+                {btnClicked && <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 5 }}
+                    transition={{ duration: 0.3 }}
+                    className="flex flex-col gap-3 mt-5">
 
-                            <span className="flex items-center gap-2">
-                                <span className="text-base">{item.expense}</span>
-                                <ChevronRight size={20} />
-                            </span>
+                    {items.map((item, i) => {
+                        const Icon = item.icon;
+                        return (
+                            <div
+                                key={i}
+                                className="flex items-center justify-between w-full p-4 rounded-xl border-1 border-[#dcdcdc] shadow-xs">
+                                <span className="flex items-center gap-3">
+                                    <Icon />
+                                    <span className="text-lg font-medium">{item.itemName}</span>
+                                </span>
 
-                        </div>
-                    );
-                })}
-            </div>
-        </div >
+                                <span className="flex items-center gap-2">
+                                    <span className="text-base">{item.expense}</span>
+                                    <ChevronRight size={20} />
+                                </span>
+                            </div>
+                        );
+                    })}
+                </motion.div>}
+            </AnimatePresence>
+        </motion.div >
     );
 }
