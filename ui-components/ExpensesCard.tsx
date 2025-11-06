@@ -45,7 +45,7 @@ export default function ExpensesCard() {
         <motion.div
             layout
             transition={{ duration: 0.3 }}
-            className="bg-[#ffffff] w-100 h-fit rounded-2xl p-5 drop-shadow-2xl">
+            className="bg-white w-100 h-fit rounded-2xl p-5 drop-shadow-2xl">
             <div className="text-base font-medium text-[#929292]">
                 Novemeber 2025
             </div>
@@ -64,7 +64,7 @@ export default function ExpensesCard() {
                 </motion.span>
             </div>
 
-            <div className="text-[#73da68]">
+            <div className="text-[#4ac53d]">
                 You have spent 20% more than last week.
             </div>
 
@@ -72,7 +72,7 @@ export default function ExpensesCard() {
                 {btnClicked && <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 5 }}
+                    exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.3 }}
                     className="flex flex-col gap-3 mt-5">
 
@@ -81,13 +81,21 @@ export default function ExpensesCard() {
                         return (
                             <div
                                 key={i}
-                                className="flex items-center justify-between w-full p-4 rounded-xl border-1 border-[#dcdcdc] shadow-xs">
-                                <span className="flex items-center gap-3">
+                                className="relative flex items-center justify-between w-full overflow-hidden p-4 rounded-xl border-1 border-[#dcdcdc] shadow-xs">
+                                <motion.div
+                                    initial={{ opacity: 0, width: 0 }}
+                                    whileInView={{ opacity: 1, width: `${item.expense}` }}
+                                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                                    exit={{ width: 0 }}
+                                    className="absolute left-0 h-16 bg-[#dcdcdc] rounded-sm"
+                                >
+                                </motion.div>
+                                <span className="flex items-center gap-3 z-10">
                                     <Icon />
                                     <span className="text-lg font-medium">{item.itemName}</span>
                                 </span>
 
-                                <span className="flex items-center gap-2">
+                                <span className="flex items-center gap-2 z-10">
                                     <span className="text-base">{item.expense}</span>
                                     <ChevronRight size={20} />
                                 </span>
@@ -95,7 +103,7 @@ export default function ExpensesCard() {
                         );
                     })}
                 </motion.div>}
-            </AnimatePresence>
+            </AnimatePresence >
         </motion.div >
     );
 }
