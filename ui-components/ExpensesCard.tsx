@@ -52,10 +52,16 @@ export default function ExpensesCard() {
 
             <div className="flex items-center justify-between py-1">
                 <span className="text-2xl font-medium text-[#252525] tracking-wider">$4,604</span>
-                <ChevronDown onClick={() => {
-                    setBtnClicked(!btnClicked);
-                }}
-                    className="cursor-pointer" />
+
+                <motion.span
+                    animate={{ rotate: btnClicked ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                >
+                    <ChevronDown onClick={() => {
+                        setBtnClicked(!btnClicked);
+                    }}
+                        className="cursor-pointer" />
+                </motion.span>
             </div>
 
             <div className="text-[#73da68]">
