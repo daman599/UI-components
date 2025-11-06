@@ -52,12 +52,12 @@ export default function ExpensesCard() {
                 You have spent 20% more than last week.
             </div>
 
-            <div className="flex flex-col gap-4 mt-5">
+            <div className="flex flex-col gap-3 mt-5">
                 {items.map((item, i) => {
                     const Icon = item.icon;
                     return (
                         <div key={i}
-                            className="flex items-center justify-between w-full p-4 rounded-2xl border-1 border-[#dcdcdc] shadow-xs">
+                            className="flex items-center justify-between w-full p-4 rounded-xl border-1 border-[#dcdcdc] shadow-xs">
                             <span className="flex items-center gap-3">
                                 <Icon />
                                 <span className="text-lg font-medium">{item.itemName}</span>
