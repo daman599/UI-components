@@ -17,16 +17,22 @@ const icons: iconsType[] = [
 
 export default function AICard() {
     return (
-        <div className="bg-white flex flex-col justify-center gap-1 p-4 border-2 border-[#e7e7e7] drop-shadow-[0px_0px_20px_rgba(162,210,255,0.8)] size-90 rounded-3xl">
+        <div className="bg-white relative overflow-hidden flex flex-col items-center justify-center p-4 border-2 border-[#e7e7e7] drop-shadow-[0px_0px_20px_rgba(162,210,255,0.8)] h-82 w-90 rounded-3xl">
 
-            <div className="border-1 border-[#c1c1c1] rounded-full p-1 shadow-md shadow-[#abd2f7] mx-auto mt-3">
+            <div className="absolute inset-0 z-0"
+                style={{
+                    background: `repeating-linear-gradient(to right,rgba(0, 0, 0, 0.05) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 20px)`,
+                }}>
+            </div>
+
+            <div className="border-1 z-10 border-[#c1c1c1] rounded-full p-1 shadow-md shadow-[#abd2f7] mx-auto my-3">
                 <div className="w-fit border-1 border-[#c1c1c1] px-5 py-2 flex items-center justify-center gap-2 rounded-full">
                     <Sparkles color={"#68abeb"} />
                     <span className="text-xl font-medium"> Generating</span>
                 </div>
             </div>
 
-            <div className="flex flex-1 items-center justify-center gap-3">
+            <div className="flex flex-1 items-center justify-center gap-3 z-10 mx-auto">
                 {icons.map((item, i) => {
                     const Icon = item.icon
                     return (
@@ -38,8 +44,10 @@ export default function AICard() {
                 })}
             </div>
 
-            <p className="text-black text-2xl font-semibold">AI compliance copilot</p>
-            <p className="text-[#9c9c9c] text-lg">Ensure full global compliance with just a single click.</p>
+            <div className="flex flex-col items-start justify-center gap-1 px-1.5">
+                <p className="text-black text-2xl font-semibold z-10">AI compliance copilot</p>
+                <p className="text-[#9c9c9c] text-lg z-10">Ensure full global compliance with just a single click.</p>
+            </div>
         </div>
     );
 }
