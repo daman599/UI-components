@@ -40,12 +40,12 @@ export default function ExpandableCard() {
                             className="flex items-center justify-center gap-3 my-2">
                             <span className="flex items-center justify-center gap-1">
                                 <Flag color={"#e773738e"} />
-                                <span className="text-gray-500 text-base">Urgent</span>
+                                <span className="text-gray-500 text-base font-medium">Urgent</span>
                             </span>
 
                             <span className="flex items-center justify-center gap-1">
                                 <Hourglass color={"#78dc91a0"} />
-                                <span className="text-gray-500 text-base">In progress</span>
+                                <span className="text-gray-500 text-base font-medium">In progress</span>
                             </span>
                         </motion.div>
 
@@ -98,31 +98,33 @@ export default function ExpandableCard() {
                     </motion.div>
 
                     <motion.div layoutId="icons"
-                        className="flex flex-col items-start justify-center gap-3 my-2"
+                        className="flex flex-col items-start justify-center gap-3 my-5"
                     >
-                        <div className="flex items-center justify-center gap-4">
+                        <div className="flex items-center justify-between gap-2 w-64">
                             <div className="flex items-center justify-center gap-1">
-                                <Flag color={"#e773738e"} />
+                                <Flag color={"#cacaca"} />
                                 <span className="text-gray-500 text-base font-medium">Priority : </span>
                             </div>
 
-                            <div className="rounded-xl gap-2 px-3 py-2 bg-[#e1b6b66b] flex items-center justify-center">
+                            <div className="rounded-xl gap-2 px-3 py-2 bg-[#e1b6b69a] flex items-center justify-center">
                                 <p className="text-gray-500 text-base font-medium">Urgent</p>
                                 <div className="flex items-center justify-center rounded-lg bg-white p-1">
-                                    <ChevronDown size={18} />
+                                    <ChevronDown size={16} />
                                 </div>
                             </div>
                         </div>
 
-                        <div className="flex items-center justify-center gap-4">
+                        <div className="flex items-center justify-between gap-2 w-64">
                             <div className="flex items-center justify-center gap-1">
-                                <Hourglass color={"#78dc91a0"} />
+                                <Hourglass color={"#cacaca"} />
                                 <span className="text-gray-500 text-base font-medium">Status : </span>
                             </div>
 
                             <div className="rounded-xl gap-2 px-3 py-2 bg-[#78dc91a0] flex items-center justify-center">
                                 <p className="text-gray-500 text-base font-medium">In progress</p>
-                                <div className="flex items-center justify-center rounded-lg bg-white p-1"><ChevronDown size={18} /></div>
+                                <div className="flex items-center justify-center rounded-lg bg-white p-1">
+                                    <ChevronDown size={16} />
+                                </div>
                             </div>
                         </div>
 
@@ -131,7 +133,7 @@ export default function ExpandableCard() {
                     <motion.div layoutId="avatars"
                         className="flex items-center justify-center gap-3 my-4">
                         {["Emma", "Alex", "Noah", "Sophia"].map((name) => (
-                            <div key={name} className="flex items-center justify-center gap-0.5 px-3 py-0.5 rounded-full bg-[#cacaca75] border-1 border-[#9c9c9c] cursor-pointer shadow-lg">
+                            <div key={name} className="flex items-center justify-center px-4 py-0.5 rounded-full bg-[#cacaca75] border-1 border-[#9c9c9c] cursor-pointer shadow-lg">
                                 < img
                                     src={`https://api.dicebear.com/7.x/adventurer/svg?seed=${name}`}
                                     alt={name}
