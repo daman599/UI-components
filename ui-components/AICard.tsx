@@ -21,7 +21,7 @@ export default function AICard() {
 
             <div className="absolute inset-0 z-0"
                 style={{
-                    background: `repeating-linear-gradient(to right,rgba(0, 0, 0, 0.05) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 20px)`,
+                    background: `repeating-linear-gradient(to right,rgba(0, 0, 0, 0.01) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 20px)`,
                 }}>
             </div>
 
