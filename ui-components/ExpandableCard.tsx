@@ -1,7 +1,7 @@
 "use client";
 
-import { Ellipsis, Sparkle, Flag, Hourglass, CheckCircle2, ChevronDown } from "lucide-react";
-import { motion } from "motion/react";
+import { Ellipsis, Sparkle, Flag, Hourglass, CheckCircle2, ChevronDown, CheckCircle } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
 export default function ExpandableCard() {
@@ -97,6 +97,35 @@ export default function ExpandableCard() {
                         <span className="text-sm text-gray-500 font-medium">75%</span>
                     </motion.div>
 
+                    <AnimatePresence>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.97, filter: "blur(8px)" }}
+                            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                            exit={{ opacity: 0, scale: 0.97, filter: "blur(8px)" }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+
+                            className="relative flex flex-col items-start justify-center gap-3 my-2 mx-1"
+                        >
+                            <div className="absolute w-0.5 h-36 left-2.5 rounded-full bg-[#cacaca] flex flex-col items-center justify-center gap-7.5">
+                                {[1, 2, 3, 4].map((i) =>
+                                    <div key={i} className="w-2 h-2 rounded-full bg-[#00b22da0] z-20"></div>
+                                )}
+                            </div>
+
+
+                            {["Redis Caching", "DB Indexing", "Job Queue Setup"].map((task, i) => (
+                                <div key={i} className="flex items-center justify-center gap-2 ml-8">
+                                    <CheckCircle color={"#00b22da0"} />
+                                    <span className="font-medium text-lg ">{task}</span>
+                                </div>
+                            ))}
+                            <div className="flex items-center justify-center gap-2 ml-8">
+                                <div className="w-6 h-6 rounded-full border-2 border-[#cacaca]"></div>
+                                <span className="font-medium text-lg">Final Deployment</span>
+                            </div>
+                        </motion.div>
+                    </AnimatePresence>
+
                     <motion.div layoutId="icons"
                         className="flex flex-col items-start justify-center gap-3 my-5"
                     >
@@ -133,7 +162,7 @@ export default function ExpandableCard() {
                     <motion.div layoutId="avatars"
                         className="flex items-center justify-center gap-3 my-4">
                         {["Emma", "Alex", "Noah", "Sophia"].map((name) => (
-                            <div key={name} className="flex items-center justify-center px-4 py-0.5 rounded-full bg-[#cacaca75] border-1 border-[#9c9c9c] cursor-pointer shadow-lg">
+                            <div key={name} className="flex items-center justify-center px-4 py-0.5 rounded-full bg-[#cacaca75] cursor-pointer shadow-xl">
                                 < img
                                     src={`https://api.dicebear.com/7.x/adventurer/svg?seed=${name}`}
                                     alt={name}
@@ -144,8 +173,8 @@ export default function ExpandableCard() {
                         ))}
                     </motion.div>
                 </>
-            )}
-
+            )
+            }
         </div >
     );
 }
