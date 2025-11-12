@@ -27,7 +27,7 @@ export default function ExpandableCard() {
                             layoutId="progressBar"
                             className="w-44 flex items-center justify-center gap-3">
                             <div className="w-full h-2 bg-gray-300 rounded-full">
-                                <div className="h-full bg-blue-400 rounded-full"
+                                <div className="h-full bg-green-400 rounded-full"
                                     style={{ width: "75%" }}></div>
                             </div>
                             <span className="text-lg text-gray-400">75%</span>
@@ -89,7 +89,7 @@ export default function ExpandableCard() {
 
                         <div className="flex-1 h-2 bg-gray-300 rounded-full overflow-hidden">
                             <div
-                                className="h-full bg-blue-400 rounded-full"
+                                className="h-full bg-green-400 rounded-full"
                                 style={{ width: "75%" }}
                             ></div>
                         </div>
@@ -102,20 +102,19 @@ export default function ExpandableCard() {
                             initial={{ opacity: 0, scale: 0.97, filter: "blur(8px)" }}
                             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
                             exit={{ opacity: 0, scale: 0.97, filter: "blur(8px)" }}
-                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                            transition={{ duration: 0.4, ease: "easeInOut" }}
 
                             className="relative flex flex-col items-start justify-center gap-3 my-2 mx-1"
                         >
-                            <div className="absolute w-0.5 h-36 left-2.5 rounded-full bg-[#cacaca] flex flex-col items-center justify-center gap-7.5">
+                            <div className="absolute w-0.5 h-36 left-2.5 rounded-full bg-[#cacaca] flex flex-col items-center justify-center gap-8">
                                 {[1, 2, 3, 4].map((i) =>
-                                    <div key={i} className="w-2 h-2 rounded-full bg-[#00b22da0] z-20"></div>
+                                    <div key={i} className="w-2 h-2 rounded-full bg-[#807702ff] z-50 drop-shadow-md"></div>
                                 )}
                             </div>
 
-
                             {["Redis Caching", "DB Indexing", "Job Queue Setup"].map((task, i) => (
                                 <div key={i} className="flex items-center justify-center gap-2 ml-8">
-                                    <CheckCircle color={"#00b22da0"} />
+                                    <CheckCircle color={"#08d260a0"} />
                                     <span className="font-medium text-lg ">{task}</span>
                                 </div>
                             ))}
@@ -145,7 +144,7 @@ export default function ExpandableCard() {
 
                         <div className="flex items-center justify-between gap-2 w-64">
                             <div className="flex items-center justify-center gap-1">
-                                <Hourglass color={"#cacaca"} />
+                                <Hourglass color={"#cacacaff"} />
                                 <span className="text-gray-500 text-base font-medium">Status : </span>
                             </div>
 
