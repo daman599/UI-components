@@ -15,13 +15,13 @@ export default function RadiatingAvatar() {
 
             <motion.div
                 animate={{ scale: [1, 1.2, 1], opacity: [1, 0, 1] }}
-                transition={{ repeat: Infinity, ease: "easeInOut", duration: 2, delay: 0.5 }}
+                transition={{ repeat: Infinity, ease: "easeInOut", duration: 3, delay: 0.5 }}
                 className="absolute w-56 h-56 rounded-full bg-[#4f4f50]">
             </motion.div>
 
             <motion.div
                 animate={{ scale: [1, 1.1, 1], opacity: [1, 0, 1] }}
-                transition={{ repeat: Infinity, ease: "easeInOut", duration: 1, delay: 1 }}
+                transition={{ repeat: Infinity, ease: "easeInOut", duration: 2, delay: 1 }}
                 className="absolute w-48 h-48 rounded-full bg-[#37393b]">
             </motion.div>
 
