@@ -43,7 +43,7 @@ export default function ContributionCard() {
                                 {Items.map((obj, i) => {
                                     const Icon = obj.Icon;
                                     return (
-                                        <div key={i} className={`flex items-center justify-center p-1 ${obj.bgcolor} rounded-full`} >
+                                        <div key={i} className={`flex items-center justify-center p-1 ${obj.bgcolor} rounded-full border-2 border-[#5b5a5a]`} >
                                             <Icon />
                                         </div>
                                     );
@@ -89,13 +89,13 @@ export default function ContributionCard() {
                             return (
                                 <div key={i} className="flex items-center justify-between w-full px-3">
                                     <div className="flex items-start justify-center gap-5">
-                                        <div key={i} className={`flex items-center justify-center p-1 ${obj.bgcolor} rounded-full`} >
+                                        <div key={i} className={`flex items-center justify-center p-1 ${obj.bgcolor} rounded-full border-2 border-[#5b5a5a]`} >
                                             <Icon />
                                         </div>
                                         <span className="text-xl text-[#83838384] font-medium">{obj.contriOrg}</span>
                                     </div>
 
-                                    <div className="text-xl text-[#83838384] font-medium">{obj.contriNumber}</div>
+                                    <div className="text-2xl text-[#83838384] font-medium">{obj.contriNumber}</div>
                                 </div>
                             );
                         })}
