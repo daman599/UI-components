@@ -99,7 +99,7 @@ export default function ContributionCard() {
                                             <span className="text-xl text-[#83838384] font-medium">{obj.contriOrg}</span>
                                         </div>
 
-                                        <div className="text-2xl text-[#83838384] font-medium">{obj.contriNumber}</div>
+                                        <div className="text-xl text-[#9c9c9c] font-medium">{obj.contriNumber}</div>
                                     </div>
                                 );
                             })}
