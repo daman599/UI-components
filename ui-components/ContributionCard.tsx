@@ -1,6 +1,9 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 import { ChevronDown, LoaderPinwheel, BadgeTurkishLira, TreePalm } from "lucide-react";
+import { motion } from "motion/react";
 
 interface IconsType {
     Icon: React.ComponentType,
@@ -14,6 +17,8 @@ const Icons: IconsType[] = [
 ];
 
 export default function ContributionCard() {
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+
     return (
         <div className="bg-black w-7/12 h-fit rounded-3xl p-6">
             <p className="text-white text-2xl">581 contributions in 2025</p>
@@ -39,9 +44,16 @@ export default function ContributionCard() {
                             );
                         })}
                     </div>
-                    <div className="flex items-center justify-center w-6 h-6 rounded-full border-1 border-[#60606087]">
+
+                    <motion.div onClick={() => {
+                        setIsOpen(!isOpen);
+                    }}
+                        animate={{ rotate: isOpen ? 180 : 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="cursor-pointer flex items-center justify-center w-6 h-6 rounded-full border-1 border-[#60606087]"
+                    >
                         <ChevronDown color={"#959595"} size={18} />
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </div >
