@@ -9,7 +9,7 @@ export default function LikeElement() {
 
     return (
         <motion.div onClick={() => setClicked(!clicked)}
-            whileTap={{ scale: 1.5 }}
+            whileTap={{ scale: !clicked ? 1.2 : 1 }}
             transition={{ type: "spring", damping: 10, stiffness: 150 }}
             className="cursor-pointer">
             <Heart size={50} fill={`${clicked ? "#ee2677" : "white"}`} stroke="#2f243a" strokeWidth={1.2} />
