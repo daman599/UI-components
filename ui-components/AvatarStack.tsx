@@ -18,7 +18,7 @@ export default function AvatarStack() {
                 <motion.div
                     initial={{ filter: "blur(1px)" }}
                     whileHover={{ y: -50, filter: "blur(0px)" }}
-                    transition={{ ease: "easeInOut" }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
                     key={i} className={`size-40 cursor-pointer rounded-full relative bg-black overflow-hidden `}
                     style={{ zIndex: avatar.z }}>
                     <Image src={avatar.path}
