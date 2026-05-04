@@ -2,6 +2,7 @@
 
 import { Instrument_Sans, Inria_Sans, Inter } from "next/font/google";
 import { ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 const instrument_sans = Instrument_Sans({
     style: "normal",
@@ -28,10 +29,13 @@ const inter = Inter({
 export const Card02 = () => {
     return (
         <div className="w-2xl h-auto bg-black rounded-4xl px-[11px] py-[10px]">
-            <div className="">
-                <p className={`${instrument_sans.className} tracking-[1.4px] text-[#C8C5C5]`}>Design that feels obvious.</p>
+            <div className="w-full relative">
+                <div className="h-60 w-full relative p-5 rounded-3xl overflow-hidden">
+                    <Image src={"/card02.png"} fill alt={"bg gradient"} className="object-cover" />
+                    <p className={`${instrument_sans.className} absolute tracking-[1.4px] text-[#C8C5C5]`}>Design that feels obvious.</p>
+                </div>
 
-                <div className="bg-[#0F0F0F] rounded-2xl h-100 relative"
+                <div className="bg-[#0F0F0F] rounded-2xl h-100 relative w-full -mt-16"
                     style={{
                         clipPath: "polygon(0% 0%, 33.6% 0%, 100.1% 100%, 39% 12%, 100.1% 12.8%, 100.1% 100%, 0% 100%)"
                     }}>
